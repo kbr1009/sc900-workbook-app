@@ -1,0 +1,14 @@
+Flask + gunicorn + docker
+https://qiita.com/arata-honda/items/e22c9df83df8ee0e9c4c
+
+CMD ["gunicorn", "flask_sample:app", "-b", "0.0.0.0:5000"]
+
+
+DockerでFlaskを実行するコンテナを作る
+https://gray-code.com/a/flask-on-docker/
+
+イメージの作成
+$ docker image build -t <tag_name> .
+
+コンテナ起動(バックグラウンド)
+$ docker run -p <host>:<contaner> -v ${PWD}/app:/app -d <tag_name>
