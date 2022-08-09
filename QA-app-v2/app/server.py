@@ -15,7 +15,6 @@ def q():
 @app.route('/a/<int:id>')
 def a(id):
     endpoint = 'https://lambda-s3-file.s3.ap-northeast-1.amazonaws.com/qa-app-v2/'
-    file_num = random.randint(1,40)
     fpath = endpoint + str(id+1) + '.pdf'
     return render_template('answer.html', fpath=fpath)
 
