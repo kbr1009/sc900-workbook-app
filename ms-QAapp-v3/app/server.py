@@ -5,11 +5,15 @@ app = Flask(__name__, template_folder="template")
 
 
 @app.route('/')
+def top():
+    return render_template('top.html')
+
+@app.route('/')
 def q():
     endpoint = 'https://lambda-s3-file.s3.ap-northeast-1.amazonaws.com/qa-app-v2/'
     file_num = random.randrange(1, 80, 2)
     fpath = endpoint + str(file_num) + '.pdf'
-    return render_template('top.html', fpath=fpath, id=file_num)
+    return render_template('xxx.html', fpath=fpath, id=file_num)
 
 
 @app.route('/a/<int:id>')
