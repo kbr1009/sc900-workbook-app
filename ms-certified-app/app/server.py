@@ -15,14 +15,14 @@ def top():
 @app.route('/<string:category>')
 def q(category):
     # category ->  sc900  az900  (s3のフォルダ名)
+    rand_num = None
     if category == "az900":
         rand_num = 100
     if category == "sc900":
         rand_num = 80
 
-    rand = rand_num
     master_pdf = s3_endpoint + category + '/' + category + ".pdf"
-    file_num = random.randrange(1, rand, 2)
+    file_num = random.randrange(1, rand_num , 2)
     fpath = s3_endpoint + category + '/' + str(file_num) + '.pdf'
     return render_template('rand_q.html', fpath=fpath, id=file_num, category=category, master_pdf=master_pdf)
 
