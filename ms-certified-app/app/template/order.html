@@ -2,23 +2,69 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>{{ category }}の問題を順番に出題</title>
+    <title>{{ category }}を学習する</title>
   </head>
   <body>
 
-    <h3>順番に出題({{ file_num }})</h3>
-
-    <div class="content">
-      <iframe src="{{ fpath }}" frameborder="no" height="650px" width="100%"></iframe>
-      <a href="/{{ category }}/order/{{ file_num }}" style="font-size: 40pt;">答えを見る</a>
-      <a href="/{{ category }}" style="font-size: 15pt;">ランダムに出題</a>
-      <a href="/" style="font-size: 15pt;">ホームに戻る</a>
+    <div class="container-xl">
+      <iframe src="{{ fpath }}" height="750px" width="100%"></iframe>
     </div>
+
+    <div class="container">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="#" onclick="history.back(); return false;">
+          <button type="button" class="btn btn-danger btn-lg me-md-2">前に戻る</button>
+        </a>
+        <a href="/{{ category }}/order/{{ file_num }} ">
+          <button type="button" class="btn btn-success btn-lg">解答を見る</button>
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-md-center">
+
+          <div class="col col-lg-2">
+            <a href="/{{ category }}" style="font-size: 15pt;">
+              <button type="button" class="btn btn-outline-primary">ランダムに出題</button>
+            </a>
+          </div>
+
+          <div class="col-md-auto">
+            <a href="{{ master_pdf }}" style="font-size: 15pt;">
+              <button type="button" class="btn btn-outline-primary">{{ category }}の教材を見る</button>
+            </a>
+          </div>
+
+          <div class="col col-lg-2">
+            <a href="/" style="font-size: 15pt;">
+              <button type="button" class="btn btn-outline-primary">ホームに戻る</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </body>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 </html>
+
+
+<style>
+.wrapper{
+  height: 100%;
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 200px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+footer{
+  width: 100%;
+  text-align: center;
+  padding: 70px 0;
+  bottom: 0; /*下に固定*/
+}
+</style>
