@@ -13,12 +13,19 @@
 
     <div class="container">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a href="#" onclick="history.back(); return false;">
-          <button type="button" class="btn btn-danger btn-lg me-md-2">前に戻る</button>
+
+        <a href="/{{ category }}/order">
+          <button type="button" class="btn btn-outline-primary btn-lg me-md-2">順番に出題</button>
         </a>
+
+        <a href="#" onclick="history.back(); return false;">
+          <button type="button" class="btn btn-danger btn-lg">前に戻る</button>
+        </a>
+
         <a href="/{{ category }}">
           <button type="button" class="btn btn-success btn-lg">次の問題へ</button>
         </a>
+
       </div>
     </div>
 
@@ -26,21 +33,16 @@
       <div class="container">
         <div class="row justify-content-md-center">
 
+          <!-- <div class="col-md-auto"> -->
           <div class="col col-lg-2">
-            <a href="/{{ category }}/order" style="font-size: 15pt;">
-              <button type="button" class="btn btn-outline-primary">順番に出題</button>
-            </a>
-          </div>
-
-          <div class="col-md-auto">
-            <a href="{{ master_pdf }}" style="font-size: 15pt;">
-              <button type="button" class="btn btn-outline-primary">{{ category }}の教材を見る</button>
+            <a href="{{ master_pdf }}" style="font-size: 20pt;">
+              <button type="button" class="btn btn-outline-secondary">元ネタを見る</button>
             </a>
           </div>
 
           <div class="col col-lg-2">
-            <a href="/" style="font-size: 15pt;">
-              <button type="button" class="btn btn-outline-primary">ホームに戻る</button>
+            <a href="/" style="font-size: 20pt;">
+              <button type="button" class="btn btn-outline-secondary">ホームに戻る</button>
             </a>
           </div>
         </div>
